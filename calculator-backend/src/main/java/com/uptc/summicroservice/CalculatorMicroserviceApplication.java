@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-public class SumMicroserviceApplication {
+public class CalculatorMicroserviceApplication {
 
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
@@ -20,6 +20,6 @@ public class SumMicroserviceApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(SumMicroserviceApplication.class, args);
+		SpringApplication.run(CalculatorMicroserviceApplication.class, args);
 	}
 }
