@@ -12,13 +12,14 @@ const Board = () => {
     const COLUMNS = 10;
     const MINES = 20;
 
+    function freshBoard() {
+        const newBoard = CreateBoard(ROWS, COLUMNS, MINES);
+        setBoard(newBoard.board);
+        setMineLocation(newBoard.mineLocation);
+        setNonMineCount(ROWS * COLUMNS - MINES);
+    }
+
     useEffect(() => {
-        function freshBoard() {
-            const newBoard = CreateBoard(ROWS, COLUMNS, MINES);
-            setBoard(newBoard.board);
-            setMineLocation(newBoard.mineLocation);
-            setNonMineCount(ROWS * COLUMNS - MINES);
-        }
         freshBoard();
     }, []);
 
@@ -39,7 +40,8 @@ const Board = () => {
                 newGrid[x[0]][x[1]].revealed = true;
             })
             setBoard(newGrid);
-            alert("F");
+            alert("Game Over!")
+            freshBoard()
         } else {
             let revealZeros = revealed(newGrid, x,y, nonMineCount);
             setBoard(revealZeros.arr);
